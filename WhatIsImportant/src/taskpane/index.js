@@ -50,7 +50,7 @@ const selectedEmailItemDidChange = () => {
 async function getBody (item)  {
     try {
         return await new Promise((resolve, reject) => {
-            item.body.getAsync('text', (result) => {
+            window.Office.context.mailbox.item.body.getAsync('text', (result) => {
               if (result.status === 'succeeded') {
                 console.log(result.value)
                 return resolve(result.value); // updated as suggested by Mavi Domates
